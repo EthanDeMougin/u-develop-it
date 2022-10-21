@@ -15,7 +15,7 @@ router.get('/candidates', (req, res) => {
    db.query(sql, (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
-        return;
+            return;
         }
         res.json({
             message: 'success',
@@ -37,7 +37,7 @@ router.get('/candidate/:id', (req, res) => {
     db.query(sql, params, (err, row) => {
         if (err) {
             res.status(400).json({ error: err.message });
-        return;
+            return;
         }
         res.json({
             message: 'success',
@@ -57,7 +57,7 @@ router.post('/candidate', ({ body }, res) => {
     );
     if (errors) {
         res.status(400).json({ error: errors });
-    return;
+        return;
     }
 
     const sql = `INSERT INTO candidates (first_name, last_name, industry_connected, party_id) VALUES (?,?,?,?)`;
@@ -71,7 +71,7 @@ router.post('/candidate', ({ body }, res) => {
     db.query(sql, params, (err, result) => {
         if (err) {
             res.status(400).json({ error: err.message });
-        return;
+            return;
         }
         res.json({
             message: 'success',
