@@ -7,10 +7,10 @@ const inputCheck = require('../../utils/inputCheck');
 router.get('/candidates', (req, res) => {
     // internal logic remains the same
     const sql = `SELECT candidates.*, parties.name 
-                 AS party_name 
+                AS party_name 
                 FROM candidates 
                 LEFT JOIN parties 
-                 ON candidates.party_id = parties.id`;
+                ON candidates.party_id = parties.id`;
                 
    db.query(sql, (err, rows) => {
         if (err) {
